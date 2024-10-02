@@ -32,7 +32,7 @@ import java.util.stream.Collectors;
 import static com.linkedin.kafka.cruisecontrol.analyzer.goals.GoalUtils.MIN_NUM_VALID_WINDOWS_FOR_SELF_HEALING;
 
 /**
- * A hard goal that generates leadership movement and leader replica movement proposals to ensure that the number of
+ * A soft goal that generates leadership movement and leader replica movement proposals to ensure that the number of
  * leader replicas on each non-excluded broker in the cluster is at most +1 for every topic (not every topic partition
  * count is perfectly divisible by every eligible broker count).
  *
@@ -229,7 +229,7 @@ public class TopicLeadershipDistributionGoal extends AbstractGoal {
 
     @Override
     public boolean isHardGoal() {
-        return true;
+        return false;
     }
 
     /**
